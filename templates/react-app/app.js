@@ -1,11 +1,11 @@
 const app = require('express')()
 
-app.get('/api', (req, res) => {
+app.get('/', (req, res) => {
   res.send("Hello from Appsody !");
 });
 
-app.get('/', function(req, res){
-  res.sendFile( __dirname + '/user-app/public/index.html');
-});
+app.listen(3001, () => {
+  console.log("Listening on 3001")
+})
 
 module.exports.app = app;

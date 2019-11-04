@@ -10,6 +10,7 @@
     "directory": ""
   },
   "scripts": {
+    "start": "concurrently --kill-others \"nodemon app.js\" \"react-scripts start\"",
     "test": "mocha"
   },
   "dependencies": {

@@ -2,20 +2,15 @@
 if (!process.env.NODE_ENV || !process.env.NODE_ENV === 'production') {
   require('appmetrics-dash').attach();
 }
-require('appmetrics-prometheus').attach();
-
 const express = require('express');
-const bodyParser = require('body-parser');
 const health = require('@cloudnative/health-connect');
 const fs = require('fs');
-const path = require('path');
-const healthcheck = new health.HealthChecker();
-const basePath = __dirname + '/user-app/';
-// Register the users app. As this is before the health/live/ready routes,
-// those can be overridden by the user
-const userApp = require(basePath + getEntryPoint()).app;
+
+require('appmetrics-prometheus').attach();
 
 const app = express();
+
+const basePath = __dirname + '/user-app/';
 
 function getEntryPoint() {
     let rawPackage = fs.readFileSync(basePath + 'package.json');
@@ -27,10 +22,12 @@ function getEntryPoint() {
     return package.main;
 }
 
-
+// Register the users app. As this is before the health/live/ready routes,
+// those can be overridden by the user
+const userApp = require(basePath + getEntryPoint()).app;
 app.use('/', userApp);
-app.use(bodyParser.urlencoded({ extended: true }));
-app.use(bodyParser.json());
+
+const healthcheck = new health.HealthChecker();
 app.use('/live', health.LivenessEndpoint(healthcheck));
 app.use('/ready', health.ReadinessEndpoint(healthcheck));
 app.use('/health', health.HealthEndpoint(healthcheck));
