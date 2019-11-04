@@ -12,6 +12,6 @@ Explain the stack and each template that is part of the stack
 
 `(cd node-express-react; appsody stack package)`
 
-`mkdir test && cd test && appsody init dev-local/node-express-react && appsody run`
+`mkdir test && cd test && appsody init dev.local/node-express-react && appsody run`
 
 - go to http://localhost:3000/ to see app
