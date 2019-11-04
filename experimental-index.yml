@@ -1,0 +1,11 @@
+apiVersion: v2
+stacks:
+    name: React Node Express
+    version: 0.1.0
+    license: Apache-2.0
+    language: nodejs
+    maintainers:
+      - name: Kidus Woldeyes
+        email: kidus.sw@gmail.com
+        github-id: kidus60
+    default-template: react-app
