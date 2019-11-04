@@ -1,5 +1,0 @@
-    apiVersion: v2
-    default-template: simple
-    templates:
-      - id: simple stack
-        url: https://github.com/kidus60/node-express-react/archive/0.0.1.tar.gz
