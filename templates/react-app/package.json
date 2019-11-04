@@ -1,13 +1,13 @@
 {
-  "name": "nodejs-express-simple",
+  "name": "react-node-express",
   "version": "0.1.0",
   "description": "Simple Node.js Express application",
   "license": "Apache-2.0",
   "main": "app.js",
   "repository": {
     "type": "git",
-    "url": "https://github.com/appsody/stacks.git",
-    "directory": "incubator/nodejs-express/templates/simple"
+    "url": "",
+    "directory": ""
   },
   "scripts": {
     "test": "mocha"
